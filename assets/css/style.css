@@ -1,0 +1,561 @@
+/* =========================================================
+   CHARACTERVERSE
+   CSS PRINCIPAL
+
+   Responsável pelo visual geral do site.
+========================================================= */
+
+/* =========================================================
+   1 - VARIÁVEIS GLOBAIS
+   Cores utilizadas em todo o projeto.
+========================================================= */
+:root {
+    --cor-fundo: #070b18;
+    --cor-secundaria: #111827;
+    --cor-card: rgba(255,255,255,0.08);
+    --cor-primaria: #3b82f6;
+    --cor-destaque: #facc15;
+    --cor-texto: #f8fafc;
+    --cor-texto-secundario: #cbd5e1;
+    --sombra: 0 15px 35px rgba(0,0,0,.4);
+    --transicao: all .3s ease;
+}
+
+/* =========================================================
+   2 - RESET GERAL
+   Remove padrões do navegador.
+========================================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--cor-fundo);
+    color: var(--cor-texto);
+    font-family: "Poppins", sans-serif;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+h1, h2, h3, h4 {
+    font-family: "Cinzel", serif;
+}
+
+p {
+    color: var(--cor-texto-secundario);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* =========================================================
+   3 - NAVBAR
+   Menu superior do site.
+========================================================= */
+.navbar {
+    padding: 15px 0;
+    background: transparent;
+    transition: var(--transicao);
+}
+
+/* Quando o usuário descer a página, o JavaScript adiciona a classe .scrolled */
+.navbar.scrolled {
+    background: rgba(7,11,24,.95);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--sombra);
+}
+
+.navbar-brand {
+    font-size: 1.4rem;
+    font-family: "Cinzel", serif;
+    font-weight: 700;
+}
+
+.navbar-brand i {
+    color: var(--cor-destaque);
+    margin-right: 8px;
+}
+
+.nav-link {
+    margin-left: 15px;
+    color: white;
+    transition: var(--transicao);
+}
+
+.nav-link:hover {
+    color: var(--cor-destaque);
+}
+
+.nav-link i {
+    margin-right: 5px;
+}
+
+/* =========================================================
+   4 - HERO
+   Primeira tela do site.
+========================================================= */
+.hero {
+    min-height: 75vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    background:
+        linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.85)),
+        url("../img/backgrounds/frieren-bg.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(7,11,24,.9), transparent);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 650px;
+}
+
+.hero h1 {
+    font-size: clamp(3rem,7vw,5rem);
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+}
+
+.btn-primary {
+    background: var(--cor-primaria);
+    border: none;
+    padding: 12px 30px;
+    border-radius: 50px;
+    transition: var(--transicao);
+}
+
+.btn-primary:hover {
+    background: var(--cor-destaque);
+    color: #000;
+    transform: translateY(-4px);
+}
+
+/* =========================================================
+   5 - PERSONAGEM EM DESTAQUE
+   Área principal antes da biblioteca.
+========================================================= */
+.destaque {
+    padding: 60px 0;
+    background: linear-gradient(180deg, var(--cor-fundo), #0b1225);
+}
+
+.categoria {
+    color: var(--cor-destaque);
+    font-size: .9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.destaque h2 {
+    font-size: 3rem;
+    margin: 15px 0;
+}
+
+.destaque h4 {
+    color: var(--cor-primaria);
+    margin-bottom: 20px;
+}
+
+.destaque p {
+    max-width: 550px;
+}
+
+.imagem-destaque {
+    max-height: 420px;
+    margin: auto;
+    border-radius: 20px;
+    box-shadow: var(--sombra);
+    transition: var(--transicao);
+}
+
+.imagem-destaque:hover {
+    transform: scale(1.03);
+}
+
+/* =========================================================
+   6 - TÍTULOS DAS SEÇÕES
+========================================================= */
+.titulo-secao {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.titulo-secao span {
+    color: var(--cor-destaque);
+    text-transform: uppercase;
+    font-size: .85rem;
+    letter-spacing: 2px;
+}
+
+.titulo-secao h2 {
+    font-size: 2.5rem;
+    margin: 10px 0;
+}
+
+.titulo-secao p {
+    max-width: 600px;
+    margin: auto;
+}
+
+/* =========================================================
+   7 - BIBLIOTECA
+   Área dos personagens.
+========================================================= */
+.biblioteca {
+    padding: 60px 0;
+    background: var(--cor-fundo);
+}
+
+/* Link do card */
+.card-link {
+    display: block;
+    height: 100%;
+    color: inherit;
+}
+
+/* =========================================================
+   CARD DOS PERSONAGENS
+   Estilo inspirado em pôsteres.
+========================================================= */
+.personagem-card {
+    background: var(--cor-card);
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 18px;
+    overflow: hidden;
+    height: 100%;
+    backdrop-filter: blur(10px);
+    transition: var(--transicao);
+    box-shadow: 0 10px 25px rgba(0,0,0,.25);
+}
+
+.personagem-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--cor-destaque);
+    box-shadow: 0 20px 40px rgba(0,0,0,.5);
+}
+
+.personagem-card img {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    transition: var(--transicao);
+}
+
+.personagem-card:hover img {
+    transform: scale(1.08);
+}
+
+.card-info {
+    padding: 20px;
+}
+
+.card-info span {
+    font-size: .8rem;
+    color: var(--cor-primaria);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.card-info h3 {
+    margin: 10px 0;
+    font-size: 1.6rem;
+}
+
+.card-info p {
+    margin-bottom: 15px;
+}
+
+.card-info button {
+    border: none;
+    background: transparent;
+    color: var(--cor-destaque);
+    font-weight: 600;
+    transition: var(--transicao);
+}
+
+.card-info button i {
+    margin-left: 5px;
+    transition: var(--transicao);
+}
+
+.personagem-card:hover button i {
+    transform: translateX(6px);
+}
+
+/* =========================================================
+   8 - SOBRE HOME
+========================================================= */
+.sobre-home {
+    padding: 60px 0;
+    background: #0b1225;
+}
+
+.sobre-home h2 {
+    font-size: 2.4rem;
+    margin: 15px 0 20px;
+}
+
+.sobre-home span {
+    color: var(--cor-destaque);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.caixa-info {
+    background: rgba(255,255,255,.06);
+    padding: 25px;
+    border-radius: 15px;
+    border: 1px solid rgba(255,255,255,.1);
+}
+
+.caixa-info h3 {
+    margin-bottom: 20px;
+}
+
+.caixa-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.caixa-info li {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+}
+
+.caixa-info li:last-child {
+    border: none;
+}
+
+/* =========================================================
+   9 - FOOTER
+   Rodapé do CharacterVerse.
+========================================================= */
+.footer {
+    padding: 45px 0 25px;
+    background: #050814;
+    border-top: 1px solid rgba(255,255,255,.08);
+}
+
+.footer h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.footer h3 i {
+    color: var(--cor-destaque);
+}
+
+.footer h4 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer li {
+    margin-bottom: 8px;
+}
+
+.footer a {
+    color: var(--cor-texto-secundario);
+    transition: var(--transicao);
+}
+
+.footer a:hover {
+    color: var(--cor-destaque);
+}
+
+.social {
+    display: flex;
+    gap: 15px;
+}
+
+.social a {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255,255,255,.08);
+    font-size: 1.2rem;
+}
+
+.social a:hover {
+    background: var(--cor-primaria);
+    color: white;
+}
+
+.footer hr {
+    margin: 30px 0;
+    border-color: rgba(255,255,255,.15);
+}
+
+.copyright {
+    text-align: center;
+    font-size: .9rem;
+}
+
+/* =========================================================
+   10 - BOTÃO VOLTAR AO TOPO
+========================================================= */
+#btnTopo {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: none;
+    background: var(--cor-primaria);
+    color: white;
+    font-size: 1.4rem;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transicao);
+    z-index: 999;
+}
+
+#btnTopo.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+#btnTopo:hover {
+    background: var(--cor-destaque);
+    color: black;
+}
+
+/* =========================================================
+   11 - ANIMAÇÕES
+========================================================= */
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-content {
+    animation: aparecer .8s ease;
+}
+
+.personagem-card {
+    animation: aparecer .6s ease;
+}
+
+/* =========================================================
+12 - RESPONSIVIDADE
+Ajustes para celular e tablets.
+========================================================= */
+
+@media(max-width:992px){
+
+    .navbar {
+        background: rgba(7,11,24,.95);
+    }
+
+    .nav-link {
+        margin-left: 0;
+        padding: 10px 0;
+    }
+
+    .hero {
+        min-height: 70vh;
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+    }
+
+    .destaque h2 {
+        font-size: 2.3rem;
+        margin-top: 25px;
+    }
+
+}
+
+
+/* CELULAR */
+@media(max-width:576px){
+
+    body {
+        overflow-x: hidden;
+        width: 100%;
+    }
+    .navbar {
+        padding: 10px 15px;
+    }
+    .navbar-brand {
+        font-size: 1.1rem;
+    }
+    .hero {
+        min-height: 60vh;
+        text-align: center;
+        padding: 40px 15px;
+    }
+    .hero h1 {
+        font-size: 2.3rem;
+    }
+    .hero p {
+        font-size: 1rem;
+    }
+    .btn-primary {
+        padding: 10px 25px;
+    }
+    .titulo-secao h2 {
+        font-size: 2rem;
+    }
+    .destaque h2 {
+        font-size: 2rem;
+    }
+    .personagem-card img {
+        height: 320px;
+    }
+    .banner-personagens img {
+        width: 100%;
+        height: auto;
+        max-height: 350px;
+        object-fit: cover;
+    }
+    .footer {
+        text-align: center;
+    }
+    .social {
+        justify-content: center;
+    }
+}
